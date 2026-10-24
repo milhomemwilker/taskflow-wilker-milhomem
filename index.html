@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>TaskFlow</title><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-tertiary": "#ffffff", "surface-container-lowest": "#ffffff", "surface-tint": "#0053db", "outline-variant": "#c3c6d7", "secondary-fixed": "#89f5e7", "on-error-container": "#93000a", "inverse-on-surface": "#eaf1ff", "on-background": "#0b1c30", "on-secondary-container": "#006f66", "primary-fixed": "#dbe1ff", "surface-container": "#e5eeff", "primary-fixed-dim": "#b4c5ff", "surface-variant": "#d3e4fe", "on-tertiary-fixed-variant": "#6e3900", "secondary-container": "#86f2e4", "surface-container-highest": "#d3e4fe", "on-tertiary-fixed": "#2f1500", "primary": "#004ac6", "error-container": "#ffdad6", "on-surface-variant": "#434655", "background": "#f8f9ff", "surface-bright": "#f8f9ff", "on-tertiary-container": "#ffede1", "on-secondary": "#ffffff", "on-secondary-fixed-variant": "#005049", "error": "#ba1a1a", "inverse-primary": "#b4c5ff", "on-primary": "#ffffff", "on-primary-fixed": "#00174b", "surface-container-high": "#dce9ff", "on-error": "#ffffff", "inverse-surface": "#213145", "secondary": "#006a61", "secondary-fixed-dim": "#6bd8cb", "on-secondary-fixed": "#00201d", "tertiary-fixed": "ffdcc3", "tertiary-container": "#a65900", "surface": "#f8f9ff", "tertiary": "#824500", "tertiary-fixed-dim": "#ffb77d", "outline": "#737686", "surface-dim": "#cbdbf5", "surface-container-low": "#eff4ff", "on-primary-fixed-variant": "#003ea8", "on-primary-container": "#eeefff", "primary-container": "#2563eb", "on-surface": "#0b1c30" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-tablet": "1.5rem", "space-md": "1rem", "gutter": "1rem", "gutter-desktop": "1.5rem", "space-xl": "2rem", "margin": "1rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "margin-desktop": "2rem" }, "fontFamily": { "label-sm": ["Inter"], "headline-md": ["Inter"], "body-lg": ["Inter"], "headline-lg-mobile": ["Inter"], "headline-xl": ["Inter"], "body-md": ["Inter"], "headline-lg": ["Inter"], "label-md": ["Inter"], "body-sm": ["Inter"], "headline-sm": ["Inter"], "headline-xl-mobile": ["Inter"] }, "fontSize": { "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "600" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500" }], "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-xl-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } };</script><link rel="stylesheet" href="dashboard.css"><script src="report.js" defer></script><script src="dashboard.js" defer></script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm shrink-0"><img alt="TaskFlow Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XrTz1a1RjK8IKpWgtiXVwK0DsMYNT5OpkxSsxymfl_V9rny2k4BU8AlIpAv-JOCxEsDY4-c6tBlau3F-w3UCuvqMYswjzeS5Ug5Fzt5uxBn5NO4QXcUmvZqnsD-XZGmrDP9-jzWd4eDxQEWhzP88e6CrkTf7wOnxIbHuebHp6Cy9pHApFbiNud3KDLIYZ6GJFTkmaC34shqLywTv4iSNAAKWEBwDTfYd5QJC0VSHc3637SEK8FesYevg"/><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">TaskFlow</span><span class="bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm px-space-sm py-0.5 rounded-full uppercase tracking-wider">MVP</span><div class="hidden sm:flex items-center gap-1.5 ml-space-xs pl-space-sm bg-surface-container-low px-space-sm py-1 rounded-full text-on-surface-variant font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span>12 ativas</span></div></div><div class="hidden md:flex flex-1 max-w-md mx-space-md"><div class="relative w-full"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-full bg-surface-container-lowest text-on-surface placeholder:text-outline pl-9 pr-8 py-1.5 rounded-lg border border-outline-variant font-body-sm text-body-sm focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all" placeholder="Buscar tarefas rápidas (pressione /)..." type="text"/><kbd class="absolute right-2.5 top-1/2 -translate-y-1/2 font-label-sm text-label-sm text-outline bg-surface-container px-1.5 py-0.5 rounded">/</kbd></div></div><nav class="hidden lg:flex items-center gap-1 bg-surface-container-low p-1 rounded-xl" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a aria-current="page" class="px-3 py-1.5 transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="todas" href="#">Todas</a><a class="px-3 py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="pendentes" href="#">Pendentes</a><a class="px-3 py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="em-andamento" href="#">Em andamento</a><a class="px-3 py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="concluidas" href="#">Concluídas</a></nav><div class="flex items-center gap-space-sm shrink-0"><button class="inline-flex items-center gap-1.5 bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md px-3.5 py-2 rounded-lg shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" type="button"><span class="material-symbols-outlined text-[18px]">add</span><span class="hidden sm:inline">Nova Tarefa</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 flex-1 bg-surface"><div class="w-full max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-lg"><div class="flex flex-col w-full">
+<!-- Toast Notifier (Floating Top Right - Nielsen #1 & #9) -->
+<div class="fixed top-20 right-6 z-50 flex items-center gap-space-sm bg-surface-container-lowest text-on-surface px-space-md py- space-sm rounded-xl shadow-xl transition-all duration-300 transform translate-y-0 opacity-100 max-w-sm" id="toast-notification">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-secondary-fixed text-[18px]">check_circle</span>
+</div>
+<div class="flex flex-col min-w-0 pr-space-xs">
+<p class="font-label-md text-label-md text-on-surface leading-tight">Tarefa atualizada com sucesso!</p>
+<span class="font-body-sm text-body-sm text-outline">Alterações salvas neste navegador</span>
+</div>
+<button aria-label="Fechar notificação" class="text-outline hover:text-on-surface p-1 rounded-full hover:bg-surface-container transition-colors shrink-0">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+<div class="absolute bottom-0 left-0 h-1 bg-primary rounded-b-xl w-full origin-left animate-[shrink_4s_linear_forwards]" id="toast-progress"></div>
+</div>
+<!-- Workspace Header & Quick Actions -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold">Sprint Ativo • Ciclo MVP</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="font-body-sm text-body-sm text-outline">Workspace local</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Painel Operacional de Tarefas</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+        Acompanhe a cadência de entrega, gerencie gargalos e sincronize pendências com a equipe neste navegador.
+      </p>
+</div>
+<!-- Quick Action / Primary Button -->
+<div class="flex items-center gap-space-sm self-start md:self-auto shrink-0">
+<button class="inline-flex items-center gap-1.5 bg-surface-container-lowest text-on-surface hover:bg-surface-container px-3.5 py-2.5 rounded-lg shadow-xs font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-outline">filter_list</span>
+<span>Filtrar</span>
+</button>
+<button class="inline-flex items-center gap-1.5 bg-primary-container hover:bg-primary text-on-primary px-4 py-2.5 rounded-lg shadow-sm font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>Nova Tarefa</span>
+</button>
+</div>
+</section>
+<!-- Metric & Nielsen #1 System Visibility Overview Panel -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-space-md mb-space-xl">
+<!-- Progress Indicator Card -->
+<div class="md:col-span-6 lg:col-span-5 bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">donut_large</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Progresso Global da Iteração</span>
+</div>
+<span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full font-semibold">Heurística #1</span>
+</div>
+<div class="flex items-baseline justify-between mb-2">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight">66%</span>
+<span class="font-body-md text-body-md text-on-surface-variant">concluído</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">4 de 6 tarefas finalizadas</span>
+</div>
+<!-- Modern Visual Track Bar -->
+<div class="w-full bg-surface-container-high h-2.5 rounded-full overflow-hidden flex">
+<div class="bg-primary h-full rounded-full transition-all duration-700 ease-out" style="width: 66.6%;"></div>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2 text-outline font-body-sm text-body-sm">
+<span>Restam 2 entregas prioritárias</span>
+<span class="text-secondary font-medium">Estimativa: Hoje, 18:30</span>
+</div>
+</div>
+<!-- Status Pillars / Categorized Counters -->
+<div class="md:col-span-6 lg:col-span-7 grid grid-cols-3 gap-space-sm">
+<!-- Card: Pendentes -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center justify-between">
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary-container animate-pulse"></div>
+<span class="material-symbols-outlined text-outline text-[18px]">hourglass_empty</span>
+</div>
+<div class="mt-space-md">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">2</span>
+<p class="font-label-md text-label-md text-on-surface-variant">Pendentes</p>
+</div>
+<div class="mt-2 text-outline font-body-sm text-body-sm">
+<span>Aguardando início</span>
+</div>
+</div>
+<!-- Card: Em Andamento -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center justify-between">
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container"></div>
+<span class="material-symbols-outlined text-primary text-[18px]">sync</span>
+</div>
+<div class="mt-space-md">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">2</span>
+<p class="font-label-md text-label-md text-on-surface-variant">Em andamento</p>
+</div>
+<div class="mt-2 text-primary font-body-sm text-body-sm">
+<span>Sprints em curso</span>
+</div>
+</div>
+<!-- Card: Concluídas -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center justify-between">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+</div>
+<div class="mt-space-md">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">2</span>
+<p class="font-label-md text-label-md text-on-surface-variant">Concluídas</p>
+</div>
+<div class="mt-2 text-secondary font-body-sm text-body-sm">
+<span>Prontas p/ deploy</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Filter & Organization Utility Strip -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-sm bg-surface-container-low p-2.5 rounded-xl mb-space-md">
+<div class="flex items-center gap-1.5 w-full sm:w-auto">
+<button class="bg-surface-container-lowest text-on-surface shadow-xs px-3 py-1.5 rounded-lg font-label-md text-label-md font-semibold">Todas as Tarefas (5)</button>
+<button class="text-on-surface-variant hover:bg-surface-container-high px-3 py-1.5 rounded-lg font-label-md text-label-md transition-colors">Minhas Demandas</button>
+<button class="text-on-surface-variant hover:bg-surface-container-high px-3 py-1.5 rounded-lg font-label-md text-label-md transition-colors">Prioridade Alta</button>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-auto text-outline font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]">swap_vert</span>
+<span>Classificado por: <strong class="text-on-surface">Data Limite</strong></span>
+</div>
+</div>
+<!-- Task Stream / Interactive Card Roster -->
+<div class="flex flex-col gap-space-md">
+<!-- Item 1: Concluída -->
+<article class="group bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-sm min-w-0 flex-1">
+<!-- Interactive Checkmark Box -->
+<button class="mt-0.5 w-5 h-5 rounded bg-secondary flex items-center justify-center text-on-secondary shrink-0 transition-transform active:scale-90" title="Marcar como pendente">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</button>
+<div class="flex flex-col min-w-0 flex-1 pr-space-md">
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<!-- Heurística 4: Badge Concluída -->
+<span class="inline-flex items-center gap-1.5 bg-[#ECFDF5] text-[#047857] px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+              Concluída
+            </span>
+<span class="font-label-sm text-label-sm text-outline">Planejamento • Sprint 01</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface/60 line-through truncate font-medium">
+            Definir escopo do projeto
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant/70 mt-1 line-clamp-2">
+            Mapeamento dos requisitos funcionais essenciais do MVP, definição do Product Backlog e alinhamento com stakeholders.
+          </p>
+<div class="flex items-center gap-space-md mt-3 font-body-sm text-body-sm text-outline">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+              Finalizado há 2h
+            </span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">chat_bubble_outline</span>
+              4 notas
+            </span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">attachment</span>
+              2 anexos
+            </span>
+</div>
+</div>
+</div>
+<!-- Action Cluster (Nielsen #7 - Inline Shortcuts) -->
+<div class="flex items-center justify-between lg:justify-end gap-space-sm pt-space-xs lg:pt-0 shrink-0">
+<!-- Quick Status Selector -->
+<div class="relative inline-block">
+<select class="appearance-none bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md pl-3 pr-8 py-2 rounded-lg cursor-pointer focus:outline-none transition-colors">
+<option selected="" value="concluida">Concluída</option>
+<option value="andamento">Em andamento</option>
+<option value="pendente">Pendente</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[16px]">expand_more</span>
+</div>
+<button class="inline-flex items-center gap-1 text-on-surface-variant hover:text-primary hover:bg-surface-container-high px-3 py-2 rounded-lg font-label-md text-label-md transition-colors" title="Editar tarefa" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span class="hidden sm:inline">Editar</span>
+</button>
+<button class="inline-flex items-center gap-1 text-outline hover:text-error hover:bg-error-container/40 px-2.5 py-2 rounded-lg font-label-md text-label-md transition-colors" title="Excluir tarefa" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</article>
+<!-- Item 2: Concluída -->
+<article class="group bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-sm min-w-0 flex-1">
+<button class="mt-0.5 w-5 h-5 rounded bg-secondary flex items-center justify-center text-on-secondary shrink-0 transition-transform active:scale-90" title="Marcar como pendente">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</button>
+<div class="flex flex-col min-w-0 flex-1 pr-space-md">
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="inline-flex items-center gap-1.5 bg-[#ECFDF5] text-[#047857] px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+              Concluída
+            </span>
+<span class="font-label-sm text-label-sm text-outline">Design de UI/UX</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface/60 line-through truncate font-medium">
+            Revisar wireframes com a equipe
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant/70 mt-1 line-clamp-2">
+            Validação de fluxos de telas no Figma, testes de contraste acessível e aprovação dos componentes do App Shell.
+          </p>
+<div class="flex items-center gap-space-md mt-3 font-body-sm text-body-sm text-outline">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+              Ontem, 16:00
+            </span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">group</span>
+              5 membros
+            </span>
+</div>
+</div>
+</div>
+<!-- Action Cluster -->
+<div class="flex items-center justify-between lg:justify-end gap-space-sm pt-space-xs lg:pt-0 shrink-0">
+<div class="relative inline-block">
+<select class="appearance-none bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md pl-3 pr-8 py-2 rounded-lg cursor-pointer focus:outline-none transition-colors">
+<option selected="" value="concluida">Concluída</option>
+<option value="andamento">Em andamento</option>
+<option value="pendente">Pendente</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[16px]">expand_more</span>
+</div>
+<button class="inline-flex items-center gap-1 text-on-surface-variant hover:text-primary hover:bg-surface-container-high px-3 py-2 rounded-lg font-label-md text-label-md transition-colors" title="Editar tarefa" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span class="hidden sm:inline">Editar</span>
+</button>
+<button class="inline-flex items-center gap-1 text-outline hover:text-error hover:bg-error-container/40 px-2.5 py-2 rounded-lg font-label-md text-label-md transition-colors" title="Excluir tarefa" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</article>
+<!-- Item 3: Em Andamento -->
+<article class="group bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-space-md border-l-4 border-l-primary-container">
+<div class="flex items-start gap-space-sm min-w-0 flex-1">
+<button class="mt-0.5 w-5 h-5 rounded bg-surface-container-high hover:bg-surface-container-highest flex items-center justify-center text-transparent hover:text-outline shrink-0 transition-all" title="Concluir tarefa">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</button>
+<div class="flex flex-col min-w-0 flex-1 pr-space-md">
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<!-- Heurística 4: Badge Em Andamento -->
+<span class="inline-flex items-center gap-1.5 bg-[#F0F9FF] text-[#0369A1] px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] animate-spin">refresh</span>
+              Em andamento
+            </span>
+<span class="inline-flex items-center gap-1 bg-error-container text-on-error-container px-2 py-0.5 rounded-full font-label-sm text-label-sm font-medium">
+              Urgente
+            </span>
+<span class="font-label-sm text-label-sm text-outline">Segurança • Back-end</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate font-semibold">
+            Implementar autenticação JWT
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 line-clamp-2">
+            Criação dos endpoints seguros de login e refresh token, proteção de rotas privadas na API e armazenamento seguro em cookies httpOnly.
+          </p>
+<div class="flex items-center gap-space-md mt-3 font-body-sm text-body-sm text-outline">
+<span class="inline-flex items-center gap-1 text-primary font-medium">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+              Vence hoje às 19:00
+            </span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">dns</span>
+              Node.js / Express
+            </span>
+</div>
+</div>
+</div>
+<!-- Action Cluster -->
+<div class="flex items-center justify-between lg:justify-end gap-space-sm pt-space-xs lg:pt-0 shrink-0">
+<div class="relative inline-block">
+<select class="appearance-none bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md pl-3 pr-8 py-2 rounded-lg cursor-pointer focus:outline-none transition-colors">
+<option selected="" value="andamento">Em andamento</option>
+<option value="concluida">Concluída</option>
+<option value="pendente">Pendente</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[16px]">expand_more</span>
+</div>
+<button class="inline-flex items-center gap-1 text-on-surface-variant hover:text-primary hover:bg-surface-container-high px-3 py-2 rounded-lg font-label-md text-label-md transition-colors" title="Editar tarefa" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span class="hidden sm:inline">Editar</span>
+</button>
+<button class="inline-flex items-center gap-1 text-outline hover:text-error hover:bg-error-container/40 px-2.5 py-2 rounded-lg font-label-md text-label-md transition-colors" title="Excluir tarefa" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</article>
+<!-- Item 4: Em Andamento -->
+<article class="group bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-space-md border-l-4 border-l-primary-container">
+<div class="flex items-start gap-space-sm min-w-0 flex-1">
+<button class="mt-0.5 w-5 h-5 rounded bg-surface-container-high hover:bg-surface-container-highest flex items-center justify-center text-transparent hover:text-outline shrink-0 transition-all" title="Concluir tarefa">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</button>
+<div class="flex flex-col min-w-0 flex-1 pr-space-md">
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="inline-flex items-center gap-1.5 bg-[#F0F9FF] text-[#0369A1] px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] animate-spin">refresh</span>
+              Em andamento
+            </span>
+<span class="font-label-sm text-label-sm text-outline">DevOps • Infraestrutura</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate font-semibold">
+            Configurar pipeline de CI/CD
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 line-clamp-2">
+            Automatização de testes unitários com GitHub Actions e build em ambiente de homologação na nuvem da AWS.
+          </p>
+<div class="flex items-center gap-space-md mt-3 font-body-sm text-body-sm text-outline">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">event</span>
+              Prazo: Amanhã, 12:00
+            </span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">commit</span>
+              8 commits ativos
+            </span>
+</div>
+</div>
+</div>
+<!-- Action Cluster -->
+<div class="flex items-center justify-between lg:justify-end gap-space-sm pt-space-xs lg:pt-0 shrink-0">
+<div class="relative inline-block">
+<select class="appearance-none bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md pl-3 pr-8 py-2 rounded-lg cursor-pointer focus:outline-none transition-colors">
+<option selected="" value="andamento">Em andamento</option>
+<option value="concluida">Concluída</option>
+<option value="pendente">Pendente</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[16px]">expand_more</span>
+</div>
+<button class="inline-flex items-center gap-1 text-on-surface-variant hover:text-primary hover:bg-surface-container-high px-3 py-2 rounded-lg font-label-md text-label-md transition-colors" title="Editar tarefa" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span class="hidden sm:inline">Editar</span>
+</button>
+<button class="inline-flex items-center gap-1 text-outline hover:text-error hover:bg-error-container/40 px-2.5 py-2 rounded-lg font-label-md text-label-md transition-colors" title="Excluir tarefa" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</article>
+<!-- Item 5: Pendente -->
+<article class="group bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-sm min-w-0 flex-1">
+<button class="mt-0.5 w-5 h-5 rounded bg-surface-container-high hover:bg-surface-container-highest flex items-center justify-center text-transparent hover:text-outline shrink-0 transition-all" title="Concluir tarefa">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</button>
+<div class="flex flex-col min-w-0 flex-1 pr-space-md">
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<!-- Heurística 4: Badge Pendente -->
+<span class="inline-flex items-center gap-1.5 bg-[#FFFBEB] text-[#B45309] px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-[#B45309]"></span>
+              Pendente
+            </span>
+<span class="font-label-sm text-label-sm text-outline">Qualidade • Pesquisa</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate font-semibold">
+            Realizar testes de usabilidade
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 line-clamp-2">
+            Aplicação do método Thinking Aloud com 5 usuários representativos para detectar atritos no fluxo de cadastro e kanban.
+          </p>
+<div class="flex items-center gap-space-md mt-3 font-body-sm text-body-sm text-outline">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">event_repeat</span>
+              Agendado: Sexta-feira
+            </span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">description</span>
+              Roteiro pronto
+            </span>
+</div>
+</div>
+</div>
+<!-- Action Cluster -->
+<div class="flex items-center justify-between lg:justify-end gap-space-sm pt-space-xs lg:pt-0 shrink-0">
+<div class="relative inline-block">
+<select class="appearance-none bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md pl-3 pr-8 py-2 rounded-lg cursor-pointer focus:outline-none transition-colors">
+<option selected="" value="pendente">Pendente</option>
+<option value="andamento">Em andamento</option>
+<option value="concluida">Concluída</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[16px]">expand_more</span>
+</div>
+<button class="inline-flex items-center gap-1 text-on-surface-variant hover:text-primary hover:bg-surface-container-high px-3 py-2 rounded-lg font-label-md text-label-md transition-colors" title="Editar tarefa" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span class="hidden sm:inline">Editar</span>
+</button>
+<button class="inline-flex items-center gap-1 text-outline hover:text-error hover:bg-error-container/40 px-2.5 py-2 rounded-lg font-label-md text-label-md transition-colors" title="Excluir tarefa" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</article>
+</div>
+<!-- Quick Add In-Place Component (Efficiency & Cognitive Comfort) -->
+<section class="mt-space-lg p-space-md rounded-xl bg-surface-container-low border border-dashed border-outline-variant/60 flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-[20px]">flash_on</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface">Criação Instantânea</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Pressione <kbd class="bg-surface-container-lowest px-1 py-0.5 rounded text-[11px] font-semibold text-on-surface">N</kbd> no teclado ou insira o título para despachar uma tarefa no backlog.</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<input class="hidden md:block w-72 bg-surface-container-lowest text-on-surface placeholder:text-outline px-3 py-2 rounded-lg font-body-md text-body-md border-0 focus:ring-2 focus:ring-primary-container outline-none shadow-xs" placeholder="Nome da nova tarefa rápida..." type="text"/>
+<button class="bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-lg shadow-xs transition-colors shrink-0" type="button">
+        Adicionar
+      </button>
+</div>
+</section>
+<!-- Visual Productivity Insight Banner -->
+<aside class="mt-space-xl p-space-lg rounded-2xl bg-gradient-to-r from-primary to-surface-tint text-on-primary shadow-md flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary text-[28px]">speed</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-primary font-semibold">Ritmo de Conclusão Excelente</h4>
+<p class="font-body-sm text-body-sm text-white/80 mt-0.5">Sua equipe concluiu 33% a mais de cards em comparação à sprint anterior com zero impedimentos críticos.</p>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="bg-surface-container-lowest text-primary font-label-md text-label-md px-4 py-2 rounded-lg hover:bg-surface-container-low transition-colors shadow-sm">
+        Ver Relatório de Eficiência
+      </button>
+</div>
+</aside>
+</div>
+<!-- Inline JavaScript for Toast Feedback & Ergonomic Actions -->
+</div></main><footer class="w-full bg-surface-container-low border-t border-outline-variant/30 py-space-md"><div class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex flex-col sm:flex-row items-center justify-between gap-space-sm font-body-sm text-body-sm text-on-surface-variant"><div class="flex items-center gap-space-md flex-wrap justify-center"><span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Atalhos Rápidos:</span><span class="inline-flex items-center gap-1"><kbd class="bg-surface-container-lowest px-1.5 py-0.5 rounded border border-outline-variant font-label-sm text-label-sm text-on-surface shadow-xs">N</kbd> Nova tarefa</span><span class="inline-flex items-center gap-1"><kbd class="bg-surface-container-lowest px-1.5 py-0.5 rounded border border-outline-variant font-label-sm text-label-sm text-on-surface shadow-xs">/</kbd> Buscar</span><span class="inline-flex items-center gap-1"><kbd class="bg-surface-container-lowest px-1.5 py-0.5 rounded border border-outline-variant font-label-sm text-label-sm text-on-surface shadow-xs">ESC</kbd> Limpar filtros</span></div><div class="text-outline font-label-sm text-label-sm">TaskFlow • Foco, eficiência e controle</div></div></footer></body></html>
+

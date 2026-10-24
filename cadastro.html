@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Configure sua conta TaskFlow em quatro etapas simples."><title>TaskFlow · Vamos começar</title><link rel="stylesheet" href="style.css"><script src="validation.js" defer></script><script src="script.js" defer></script></head>
+<body>
+<header class="brand"><a href="./" aria-label="TaskFlow, início"><span class="logo">✓</span> TaskFlow<span class="badge">COMECE AQUI</span></a></header>
+<main>
+  <div class="intro"><span class="eyebrow">SEU PRÓXIMO PASSO, MAIS SIMPLES</span><h1>Organize o que vem a seguir.</h1><p>Uma conta, novas possibilidades. Vamos preparar tudo para você.</p></div>
+  <section class="card" aria-label="Cadastro em etapas">
+    <div class="progress-head"><span id="step-label" aria-live="polite">Passo 1 de 4</span><span id="percent">25%</span></div>
+    <progress id="progress" max="4" value="1" aria-label="Progresso do cadastro"></progress>
+    <ol class="stepper"><li>Seus dados</li><li>Endereço</li><li>Sua conta</li><li>Revisão</li></ol>
+    <form id="flow" novalidate>
+      <section data-step="0"><span class="section-icon" aria-hidden="true">01</span><h2 tabindex="-1">Vamos nos conhecer</h2><p class="description">Preencha seus dados pessoais para começar.</p><div class="fields">
+        <div class="field"><label for="name">Nome completo <span>*</span></label><input id="name" name="name" autocomplete="name" maxlength="120" placeholder="Como você gostaria de ser chamado?" required><small id="name-error" class="error"></small></div>
+        <div class="field"><label for="email">E-mail <span>*</span></label><input id="email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="voce@exemplo.com" required><small id="email-error" class="error"></small></div>
+        <div class="field"><label for="cpf">CPF <span>*</span></label><input id="cpf" name="cpf" inputmode="numeric" maxlength="14" placeholder="000.000.000-00" required><small id="cpf-error" class="error"></small></div>
+      </div></section>
+      <section data-step="1" hidden><span class="section-icon" aria-hidden="true">02</span><h2 tabindex="-1">Onde você está?</h2><p class="description">Informe seu endereço. Todos os campos são obrigatórios.</p><div class="fields">
+        <div class="field"><label for="cep">CEP <span>*</span></label><input id="cep" name="cep" autocomplete="postal-code" inputmode="numeric" maxlength="9" placeholder="00000-000" required><small id="cep-error" class="error"></small></div>
+        <div class="field"><label for="street">Rua ou avenida <span>*</span></label><input id="street" name="street" autocomplete="address-line1" maxlength="180" placeholder="Nome da sua rua" required><small id="street-error" class="error"></small></div>
+        <div class="field"><label for="number">Número <span>*</span></label><input id="number" name="number" maxlength="20" placeholder="Ex.: 123 ou S/N" required><small id="number-error" class="error"></small></div>
+      </div></section>
+      <section data-step="2" hidden><span class="section-icon" aria-hidden="true">03</span><h2 tabindex="-1">Seu acesso, protegido</h2><p class="description">Escolha uma senha exclusiva para sua conta.</p><div class="fields">
+        <div class="field"><label for="password">Senha <span>*</span></label><div class="password-wrap"><input id="password" name="password" type="password" autocomplete="new-password" maxlength="128" required><button id="toggle-password" type="button" aria-controls="password confirm" aria-pressed="false">Mostrar</button></div><small class="hint" id="password-hint">Use ao menos 8 caracteres, uma letra e um número.</small><small id="password-error" class="error"></small></div>
+        <div class="field"><label for="confirm">Confirmar senha <span>*</span></label><input id="confirm" name="confirm" type="password" autocomplete="new-password" maxlength="128" required><small id="confirm-error" class="error"></small></div>
+      </div><p class="notice">Sua senha fica apenas nesta sessão e não é salva no navegador.</p></section>
+      <section data-step="3" hidden><span class="section-icon" aria-hidden="true">04</span><h2 tabindex="-1">Tudo certo por aqui?</h2><p class="description">Confira suas informações antes de finalizar.</p><div id="summary"></div><p class="notice">Demonstração local: finalizar confirma o fluxo neste navegador. Nenhum dado será enviado a um servidor.</p></section>
+      <div class="actions"><button type="button" id="back" class="secondary">← Voltar</button><span class="required-note">* Campos obrigatórios</span><button type="submit" id="next" class="primary">Próximo <span aria-hidden="true">→</span></button></div>
+    </form>
+    <section id="success" hidden aria-live="polite"><div class="success-icon">✓</div><h2 tabindex="-1">Tudo pronto!</h2><p>Seu fluxo foi concluído com sucesso.</p><p class="description">Esta é uma demonstração local. Sua conta não foi criada em um servidor.</p><button id="restart" class="primary" type="button">Iniciar novo cadastro</button></section>
+  </section>
+  <p class="footer-note">Poucos passos. Mais espaço para o que importa.</p>
+</main><footer>© <span id="year"></span> TaskFlow <span>Feito para simplificar.</span></footer>
+</body></html>

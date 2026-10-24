@@ -1,0 +1,16 @@
+const assert=require('node:assert/strict');
+const {validCPF,validate}=require('./validation.js');
+assert.equal(validCPF('529.982.247-25'),true);
+assert.equal(validCPF('529.982.247-24'),false);
+assert.equal(validCPF('111.111.111-11'),false);
+assert.equal(validCPF('123'),false);
+assert.ok(validate('name','   ',{}));
+assert.ok(validate('email','nome@',{}));
+assert.equal(validate('email','nome@example.com',{}),'');
+assert.ok(validate('cep','12345',{}));
+assert.equal(validate('cep','12345-678',{}),'');
+assert.ok(validate('password','abcdefgh',{}));
+assert.equal(validate('password','segredo123',{}),'');
+assert.ok(validate('confirm','diferente',{password:'segredo123'}));
+assert.equal(validate('confirm','segredo123',{password:'segredo123'}),'');
+console.log('13 verificações de validação passaram.');
